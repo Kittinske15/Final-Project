@@ -42,4 +42,8 @@ UI(User interface) : to interact the program.
 
 ![pasted image 0](https://user-images.githubusercontent.com/32285869/32792786-dcab4886-c996-11e7-8fc7-bf74018152cf.png)
 
+![pasted image 0 2](https://user-images.githubusercontent.com/32285869/32792907-2089971a-c997-11e7-923b-43747cafaa3a.png)
+
+![pasted image 0 1](https://user-images.githubusercontent.com/32285869/32792911-23693a94-c997-11e7-8bcd-7c509ffb6879.png)
+
 
