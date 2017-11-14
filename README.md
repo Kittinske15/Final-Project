@@ -38,3 +38,5 @@ UI(User interface) : to interact the program.
 ## Vision or mock-up of your application:
 ![capture](https://user-images.githubusercontent.com/32285869/32792507-1139d474-c996-11e7-956b-cd4330504da2.JPG)
 
+![capture1](https://user-images.githubusercontent.com/32285869/32792668-8429fb4e-c996-11e7-93ba-bcc0aa6fec77.JPG)
+
