@@ -21,12 +21,8 @@ The program function:
 
 ## How does it use you learning in this course :
 Arraylist and arrays: collecting menu list, employee list, order from each table.
-
 Object Oriented design and Programing: improve ways to collect data.
-
 Nested loop and loop: apply the loop for the whole restaurant ( which the main loop is login and logout ).
-
 Methods: to simplify the code.
-
 UI(User interface): to interact the program.
 
