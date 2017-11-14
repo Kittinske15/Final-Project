@@ -186,7 +186,6 @@ public class Menulist extends javax.swing.JFrame {
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 220, 127));
 
         jButton6.setText("jButton1");
-        jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -196,7 +195,6 @@ public class Menulist extends javax.swing.JFrame {
 
         jButton7.setFont(new java.awt.Font("Tahoma", 0, 35)); // NOI18N
         jButton7.setText("+");
-        jButton7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -206,7 +204,6 @@ public class Menulist extends javax.swing.JFrame {
 
         jButton8.setFont(new java.awt.Font("Tahoma", 0, 35)); // NOI18N
         jButton8.setText("-");
-        jButton8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -216,7 +213,6 @@ public class Menulist extends javax.swing.JFrame {
 
         jButton9.setFont(new java.awt.Font("Tahoma", 0, 35)); // NOI18N
         jButton9.setText("Cancel");
-        jButton9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -224,8 +220,8 @@ public class Menulist extends javax.swing.JFrame {
         });
         getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 650, 250, 130));
 
-        jButton10.setText("jButton1");
-        jButton10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton10.setFont(new java.awt.Font("Tahoma", 0, 35)); // NOI18N
+        jButton10.setText("Order");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);

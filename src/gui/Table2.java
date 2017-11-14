@@ -4,9 +4,18 @@
  * and open the template in the editor.
  */
 package gui;
-import java.awt.*;
-import java.awt.geom.*;
-import javax.swing.*;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -18,65 +27,8 @@ public class Table2 extends javax.swing.JFrame {
      * Creates new form Table2
      */
     public Table2() {
-        initComponents();      
+        initComponents();
     }
-    public class RoundButton extends JButton {
-  public RoundButton(String label) {
-    super(label);
-
-// These statements enlarge the button so that it 
-// becomes a circle rather than an oval.
-    Dimension size = getPreferredSize();
-    size.width = size.height = Math.max(size.width, 
-      size.height);
-    setPreferredSize(size);
-
-// This call causes the JButton not to paint 
-   // the background.
-// This allows us to paint a round background.
-    setContentAreaFilled(false);
-  }
-
-// Paint the round background and label.
-  protected void paintComponent(Graphics g) {
-    if (getModel().isArmed()) {
-// You might want to make the highlight color 
-   // a property of the RoundButton class.
-      g.setColor(Color.lightGray);
-    } else {
-      g.setColor(getBackground());
-    }
-    g.fillOval(0, 0, getSize().width-1, 
-      getSize().height-1);
-
-// This call will paint the label and the 
-   // focus rectangle.
-    super.paintComponent(g);
-  }
-
-// Paint the border of the button using a simple stroke.
-  protected void paintBorder(Graphics g) {
-    g.setColor(getForeground());
-    g.drawOval(0, 0, getSize().width-1, 
-      getSize().height-1);
-  }
-
-// Hit detection.
-  Shape shape;
-  public boolean contains(int x, int y) {
-// If the button has changed size, 
-   // make a new shape object.
-    if (shape == null || 
-      !shape.getBounds().equals(getBounds())) {
-      shape = new Ellipse2D.Float(0, 0, 
-        getWidth(), getHeight());
-    }
-    return shape.contains(x, y);
-  }
-
-// Test routine.
-  
-}
     
 
     /**
@@ -88,27 +40,27 @@ public class Table2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton2.setText("jButton2");
+        jButton1.setText("jButton1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(279, 279, 279)
-                .addComponent(jButton2)
-                .addContainerGap(832, Short.MAX_VALUE))
+                .addGap(121, 121, 121)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(795, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(378, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(337, 337, 337))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(157, 157, 157)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(428, Short.MAX_VALUE))
         );
 
         pack();
@@ -117,19 +69,7 @@ public class Table2 extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        // Create a button with the label "Jackpot".
-    JButton button = new RoundButton("jButton2");
-    button.setBackground(Color.green);
-
-// Create a frame in which to show the button.
-    JFrame frame = new JFrame();
-    frame.getContentPane().setBackground(Color.yellow);
-    frame.getContentPane().add(button);
-    frame.getContentPane().setLayout(new FlowLayout());
-    frame.setSize(150, 150);
-    frame.setVisible(true);
-  
+    public static void main(String args[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -154,14 +94,18 @@ public class Table2 extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        UIManager.setLookAndFeel("com.jtattoo.plaf.aluminium.AluminiumLookAndFeel");
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Table2().setVisible(true);
             }
+            
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
+
