@@ -36,6 +36,7 @@ public class Table2 extends javax.swing.JFrame {
        
        
     }
+    
    
     
     
