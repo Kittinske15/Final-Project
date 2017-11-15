@@ -54,7 +54,12 @@ public class signUp extends javax.swing.JFrame {
 
         jTextField5.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         jTextField5.setForeground(new java.awt.Color(51, 51, 0));
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 239, 536, -1));
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 536, -1));
 
         jTextField7.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         jTextField7.setForeground(new java.awt.Color(51, 51, 0));
@@ -106,8 +111,13 @@ public class signUp extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        new Table().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
 
     /**
      * @param args the command line arguments

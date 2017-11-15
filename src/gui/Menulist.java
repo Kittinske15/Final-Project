@@ -185,7 +185,8 @@ public class Menulist extends javax.swing.JFrame {
         jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 220, 127));
 
-        jButton6.setText("jButton1");
+        jButton6.setFont(new java.awt.Font("Tahoma", 0, 40)); // NOI18N
+        jButton6.setText("Back");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -237,7 +238,8 @@ public class Menulist extends javax.swing.JFrame {
     }//GEN-LAST:event_jScrollPane1AncestorAdded
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        new Table2().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
