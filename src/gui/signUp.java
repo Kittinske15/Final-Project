@@ -5,6 +5,8 @@
  */
 package gui;
 
+import gui.Home;
+import gui.Table2;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -102,7 +104,7 @@ public class signUp extends javax.swing.JFrame {
         jLabel5.setText("username :");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 170, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/newwww.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Background/newwww.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 740));
 
         pack();

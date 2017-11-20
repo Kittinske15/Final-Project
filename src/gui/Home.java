@@ -6,6 +6,9 @@
 package gui;
 
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -18,8 +21,7 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
-        getContentPane().setBackground(new Color(204,204,204));
-        
+        getContentPane().setBackground(new Color(204,204,204));            
     }
 
     /**
@@ -110,7 +112,7 @@ public class Home extends javax.swing.JFrame {
         getContentPane().add(jLabel4);
         jLabel4.setBounds(200, 380, 160, 50);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Desktop\\spice_spoons_detail (1).jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Background/spice_spoons_detail (1).jpg"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1410, 740);
 
@@ -118,7 +120,17 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new Table().setVisible(true);
+        try {
+            new Table2().setVisible(true);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
