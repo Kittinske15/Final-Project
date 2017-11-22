@@ -485,7 +485,7 @@ public class Table2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        new Menulist().setVisible(true);
+        new Menu().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton20ActionPerformed
 
