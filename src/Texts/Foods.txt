@@ -1,0 +1,30 @@
+Rice (plate);8;eat
+Rice (bowl);40;eat
+Porridge;29;eat
+Pork Green Curry;59;eat
+Beef Curry;99;eat
+Fish Ball Soup;69;eat
+Fried Fish Curry;69;eat
+Crab Meat Yellow Curry;89;eat
+Pan Fried Seafood;109;eat
+Chicken with Cashew Nuts;75;eat
+Stir Fried Vegetables;59;eat
+Fried Pork with Garlic;69;eat
+Omelet;29;eat
+Century Egg;45;eat
+Grilled Seafood Salad;125;eat
+Grilled Chicken;49;eat
+Chicken Wings;49;eat
+Chicken Legs;49;eat
+Beef Steak;119;eat
+Dried Beef;109;eat
+Water;15;drink
+Mineral Water;25;drink
+Coke;20;drink
+Iced Coffee;40;drink
+Iced Cocoa;40;drink
+Iced Lemon Tea;45;drink
+Iced Green Tea Latte;50;drink
+Thai Iced Tea;50;drink
+Leo (bottle);79;drink
+Sapporo (bottle);99;drink
