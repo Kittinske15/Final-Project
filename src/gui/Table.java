@@ -1,25 +1,9 @@
 package gui;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.Shape;
-import java.awt.geom.AffineTransform;
+import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.stage.Stage;
-import javax.swing.JLabel;
 import javax.swing.UIManager;
-import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
 
 public class Table extends javax.swing.JFrame {
@@ -66,9 +50,6 @@ public class Table extends javax.swing.JFrame {
         jButton21 = new javax.swing.JButton();
         jButton22 = new javax.swing.JButton();
         jButton23 = new javax.swing.JButton();
-        jButton24 = new javax.swing.JButton();
-        jButton27 = new javax.swing.JButton();
-        jButton28 = new javax.swing.JButton();
         jButton29 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
@@ -335,18 +316,6 @@ public class Table extends javax.swing.JFrame {
         jButton23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 0, 170, 30));
 
-        jButton24.setText("jButton1");
-        jButton24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 170, 30));
-
-        jButton27.setText("jButton1");
-        jButton27.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jButton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 170, 30));
-
-        jButton28.setText("jButton1");
-        jButton28.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 30));
-
         jButton29.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton29.setText("Logout");
         jButton29.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -365,85 +334,155 @@ public class Table extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Table18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Table18ActionPerformed
-        Menu table18 = new Menu("18");
+        Menu table18 = null;
+        try {
+            table18 = new Menu("18");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
         table18.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Table18ActionPerformed
 
     private void Table17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Table17ActionPerformed
-        Menu table17 = new Menu("17");
+        Menu table17 = null;
+        try {
+            table17 = new Menu("17");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
         table17.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Table17ActionPerformed
 
     private void Table16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Table16ActionPerformed
-        Menu table16 = new Menu("16");
+        Menu table16 = null;
+        try {
+            table16 = new Menu("16");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
         table16.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Table16ActionPerformed
 
     private void Table15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Table15ActionPerformed
-        Menu table15 = new Menu("15");
+        Menu table15 = null;
+        try {
+            table15 = new Menu("15");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
         table15.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Table15ActionPerformed
 
     private void Table14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Table14ActionPerformed
-        Menu table14 = new Menu("14");
+        Menu table14 = null;
+        try {
+            table14 = new Menu("14");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
         table14.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Table14ActionPerformed
 
     private void Table13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Table13ActionPerformed
-        Menu table13 = new Menu("13");
+        Menu table13 = null;
+        try {
+            table13 = new Menu("13");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
         table13.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Table13ActionPerformed
 
     private void Table12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Table12ActionPerformed
-        Menu table12 = new Menu("12");
+        Menu table12 = null;
+        try {
+            table12 = new Menu("12");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
         table12.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Table12ActionPerformed
 
     private void Table11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Table11ActionPerformed
-        Menu table11 = new Menu("11");
+        Menu table11 = null;
+        try {
+            table11 = new Menu("11");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
         table11.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Table11ActionPerformed
 
     private void Table10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Table10ActionPerformed
-        Menu table10 = new Menu("10");
+        Menu table10 = null;
+        try {
+            table10 = new Menu("10");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
         table10.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Table10ActionPerformed
 
     private void Table9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Table9ActionPerformed
-        Menu table9 = new Menu("9");
+        Menu table9 = null;
+        try {
+            table9 = new Menu("9");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
         table9.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Table9ActionPerformed
 
     private void Table8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Table8ActionPerformed
-        Menu table8 = new Menu("8");
+        Menu table8 = null;
+        try {
+            table8 = new Menu("8");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
         table8.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Table8ActionPerformed
 
     private void Table7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Table7ActionPerformed
-        Menu table7 = new Menu("7");
+        Menu table7 = null;
+        try {
+            table7 = new Menu("7");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
         table7.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Table7ActionPerformed
 
     private void Table6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Table6ActionPerformed
-        Menu table6 = new Menu("6");
+        Menu table6 = null;
+        try {
+            table6 = new Menu("6");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
         table6.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Table6ActionPerformed
 
     private void Table5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Table5ActionPerformed
-        Menu table5 = new Menu("5");
+        Menu table5 = null;
+        try {
+            table5 = new Menu("5");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
         table5.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Table5ActionPerformed
@@ -457,13 +496,23 @@ public class Table extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1AncestorAdded
 
     private void Table20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Table20ActionPerformed
-        Menu table20 = new Menu("20");
+        Menu table20 = null;
+        try {
+            table20 = new Menu("20");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
         table20.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Table20ActionPerformed
 
     private void Table19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Table19ActionPerformed
-        Menu table19 = new Menu("19");
+        Menu table19 = null;
+        try {
+            table19 = new Menu("19");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
         table19.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Table19ActionPerformed
@@ -473,25 +522,45 @@ public class Table extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2AncestorAdded
 
     private void Table4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Table4ActionPerformed
-        Menu table4 = new Menu("4");
+        Menu table4 = null;
+        try {
+            table4 = new Menu("4");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
         table4.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Table4ActionPerformed
 
     private void Table3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Table3ActionPerformed
-        Menu table3 = new Menu("3");
+        Menu table3 = null;
+        try {
+            table3 = new Menu("3");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
         table3.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Table3ActionPerformed
 
     private void Table2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Table2ActionPerformed
-        Menu table2 = new Menu("2");
+        Menu table2 = null;
+        try {
+            table2 = new Menu("2");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
         table2.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Table2ActionPerformed
 
     private void Table1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Table1ActionPerformed
-        Menu table1 = new Menu("1");
+        Menu table1 = null;
+        try {
+            table1 = new Menu("1");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
         table1.setVisible(true);
         this.dispose();
 
@@ -582,9 +651,6 @@ public class Table extends javax.swing.JFrame {
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton23;
-    private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton29;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
