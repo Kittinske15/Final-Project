@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package gui;
+package gui.frame;
 
-import Codes.UserList;
-import gui.Login;
-import gui.Table;
+
+import model.UserList;
 import java.awt.Color;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -52,6 +46,7 @@ public class signUp extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("RESTAURANT POS (made by Kit&Bank)");
         setBackground(new java.awt.Color(204, 204, 204));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -119,7 +114,17 @@ public class signUp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new Login().setVisible(true);
+        try {
+            new Login().setVisible(true);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(signUp.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(signUp.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(signUp.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(signUp.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
     static JFrame error = new JFrame("Problem");
@@ -136,6 +141,14 @@ public class signUp extends javax.swing.JFrame {
                         new Login().setVisible(true);
                         this.dispose();
                     } catch (IOException ex) {
+                        Logger.getLogger(signUp.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(signUp.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (InstantiationException ex) {
+                        Logger.getLogger(signUp.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (IllegalAccessException ex) {
+                        Logger.getLogger(signUp.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (UnsupportedLookAndFeelException ex) {
                         Logger.getLogger(signUp.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } else {

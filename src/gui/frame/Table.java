@@ -1,20 +1,40 @@
-package gui;
+package gui.frame;
 
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.Shape;
+import java.awt.geom.AffineTransform;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import javax.swing.JLabel;
 import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
+import model.TableManager;
 
 public class Table extends javax.swing.JFrame {
 
-    public Table() throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
-        UIManager.setLookAndFeel("com.jtattoo.plaf.aluminium.AluminiumLookAndFeel");
+    public Table() {
         initComponents();
         jLabel1.setOpaque(true);
         jLabel1.setBackground(java.awt.Color.yellow);
-        jLabel3.setOpaque(true);
-        jLabel3.setBackground(java.awt.Color.yellow);
+        jLabel7.setOpaque(true);
+        jLabel7.setBackground(java.awt.Color.yellow);
+        jLabel8.setOpaque(true);
+        jLabel8.setBackground(java.awt.Color.yellow);
         jLabel2.setOpaque(true);
         jLabel2.setBackground(java.awt.Color.yellow);
 
@@ -43,7 +63,6 @@ public class Table extends javax.swing.JFrame {
         Table18 = new javax.swing.JButton();
         Table1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         Table19 = new javax.swing.JButton();
         Table20 = new javax.swing.JButton();
@@ -51,9 +70,11 @@ public class Table extends javax.swing.JFrame {
         jButton22 = new javax.swing.JButton();
         jButton23 = new javax.swing.JButton();
         jButton29 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("RESTAURANT POS (made by Kit&Bank)");
         setBackground(new java.awt.Color(102, 204, 255));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -62,186 +83,205 @@ public class Table extends javax.swing.JFrame {
         Table7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Table7.setText("Table7");
         Table7.setToolTipText("");
+        Table7.setName("7"); // NOI18N
         Table7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Table7ActionPerformed(evt);
             }
         });
-        getContentPane().add(Table7, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 579, 128, 99));
+        getContentPane().add(Table7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 430, 110, 90));
 
         Table17.setBackground(new java.awt.Color(153, 102, 0));
         Table17.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Table17.setText("Table17");
+        Table17.setName("17"); // NOI18N
         Table17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Table17ActionPerformed(evt);
             }
         });
-        getContentPane().add(Table17, new org.netbeans.lib.awtextra.AbsoluteConstraints(988, 144, 128, 99));
+        getContentPane().add(Table17, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 310, 90, 80));
 
         Table4.setBackground(new java.awt.Color(255, 153, 153));
         Table4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Table4.setText("Table4");
+        Table4.setName("4"); // NOI18N
         Table4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Table4ActionPerformed(evt);
             }
         });
-        getContentPane().add(Table4, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 367, 128, 99));
+        getContentPane().add(Table4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 110, 90));
 
         Table3.setBackground(new java.awt.Color(255, 153, 153));
         Table3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Table3.setText("Table3");
+        Table3.setName("3"); // NOI18N
         Table3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Table3ActionPerformed(evt);
             }
         });
-        getContentPane().add(Table3, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 255, 128, 99));
+        getContentPane().add(Table3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 110, 90));
 
         Table2.setBackground(new java.awt.Color(255, 153, 153));
         Table2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Table2.setText("Table2");
+        Table2.setName("2"); // NOI18N
         Table2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Table2ActionPerformed(evt);
             }
         });
-        getContentPane().add(Table2, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 143, 128, 99));
+        getContentPane().add(Table2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 80, 70));
 
         Table8.setBackground(new java.awt.Color(0, 153, 255));
         Table8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Table8.setText("Table8");
+        Table8.setName("8"); // NOI18N
         Table8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Table8ActionPerformed(evt);
             }
         });
-        getContentPane().add(Table8, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 579, 128, 99));
+        getContentPane().add(Table8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, 80, 70));
 
         Table6.setBackground(new java.awt.Color(255, 153, 153));
         Table6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Table6.setText("Table6");
+        Table6.setName("6"); // NOI18N
         Table6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Table6ActionPerformed(evt);
             }
         });
-        getContentPane().add(Table6, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 579, 128, 99));
+        getContentPane().add(Table6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 500, 110, 90));
 
         Table9.setBackground(new java.awt.Color(0, 153, 255));
         Table9.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Table9.setText("Table9");
+        Table9.setName("9"); // NOI18N
         Table9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Table9ActionPerformed(evt);
             }
         });
-        getContentPane().add(Table9, new org.netbeans.lib.awtextra.AbsoluteConstraints(447, 579, 128, 99));
+        getContentPane().add(Table9, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, 128, 99));
 
         Table12.setBackground(new java.awt.Color(0, 153, 255));
         Table12.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Table12.setText("Table12");
+        Table12.setName("12"); // NOI18N
         Table12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Table12ActionPerformed(evt);
             }
         });
-        getContentPane().add(Table12, new org.netbeans.lib.awtextra.AbsoluteConstraints(852, 579, 128, 99));
+        getContentPane().add(Table12, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 128, 99));
 
         Table10.setBackground(new java.awt.Color(0, 153, 255));
         Table10.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Table10.setText("Table10");
+        Table10.setName("10"); // NOI18N
         Table10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Table10ActionPerformed(evt);
             }
         });
-        getContentPane().add(Table10, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 579, 128, 99));
+        getContentPane().add(Table10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, 128, 99));
 
         Table5.setBackground(new java.awt.Color(255, 153, 153));
         Table5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Table5.setText("Table5");
+        Table5.setName("5"); // NOI18N
         Table5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Table5ActionPerformed(evt);
             }
         });
-        getContentPane().add(Table5, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 473, 128, 99));
+        getContentPane().add(Table5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 379, 110, 90));
 
         Table13.setBackground(new java.awt.Color(153, 102, 0));
         Table13.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Table13.setText("Table13");
         Table13.setAutoscrolls(true);
+        Table13.setName("13"); // NOI18N
         Table13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Table13ActionPerformed(evt);
             }
         });
-        getContentPane().add(Table13, new org.netbeans.lib.awtextra.AbsoluteConstraints(987, 579, 128, 99));
+        getContentPane().add(Table13, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 310, 128, 99));
 
         Table14.setBackground(new java.awt.Color(153, 102, 0));
         Table14.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Table14.setText("Table14");
+        Table14.setName("14"); // NOI18N
         Table14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Table14ActionPerformed(evt);
             }
         });
-        getContentPane().add(Table14, new org.netbeans.lib.awtextra.AbsoluteConstraints(988, 473, 128, 99));
+        getContentPane().add(Table14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 110, 90, 70));
 
         Table16.setBackground(new java.awt.Color(153, 102, 0));
         Table16.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Table16.setText("Table16");
+        Table16.setName("16"); // NOI18N
         Table16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Table16ActionPerformed(evt);
             }
         });
-        getContentPane().add(Table16, new org.netbeans.lib.awtextra.AbsoluteConstraints(988, 255, 128, 99));
+        getContentPane().add(Table16, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 410, 90, 80));
 
         Table11.setBackground(new java.awt.Color(0, 153, 255));
         Table11.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Table11.setText("Table11");
+        Table11.setName("11"); // NOI18N
         Table11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Table11ActionPerformed(evt);
             }
         });
-        getContentPane().add(Table11, new org.netbeans.lib.awtextra.AbsoluteConstraints(717, 579, 128, 99));
+        getContentPane().add(Table11, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 180, 128, 99));
 
         Table15.setBackground(new java.awt.Color(153, 102, 0));
         Table15.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Table15.setText("Table15");
+        Table15.setName("15"); // NOI18N
         Table15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Table15ActionPerformed(evt);
             }
         });
-        getContentPane().add(Table15, new org.netbeans.lib.awtextra.AbsoluteConstraints(988, 367, 128, 99));
+        getContentPane().add(Table15, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 510, 90, 80));
 
         Table18.setBackground(new java.awt.Color(153, 102, 0));
         Table18.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Table18.setText("Table18");
+        Table18.setName("18"); // NOI18N
         Table18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Table18ActionPerformed(evt);
             }
         });
-        getContentPane().add(Table18, new org.netbeans.lib.awtextra.AbsoluteConstraints(988, 38, 128, 99));
+        getContentPane().add(Table18, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 210, 90, 80));
 
         Table1.setBackground(new java.awt.Color(255, 153, 153));
         Table1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Table1.setText("Table1");
+        Table1.setName("1"); // NOI18N
         Table1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Table1ActionPerformed(evt);
             }
         });
-        getContentPane().add(Table1, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 37, 128, 99));
+        getContentPane().add(Table1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 139, 110, 90));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
-        jLabel1.setText(" BAR");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("BAR");
         jLabel1.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -251,23 +291,11 @@ public class Table extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(893, 38, 60, 447));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
-        jLabel3.setText("                                                         BAR");
-        jLabel3.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jLabel3AncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 503, 750, 52));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 200, 70, 400));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
-        jLabel2.setText(" BAR");
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("BAR");
         jLabel2.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -277,27 +305,29 @@ public class Table extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 50, 60, 435));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 60, 430));
 
         Table19.setBackground(new java.awt.Color(255, 51, 51));
         Table19.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Table19.setText("Table19");
+        Table19.setName("19"); // NOI18N
         Table19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Table19ActionPerformed(evt);
             }
         });
-        getContentPane().add(Table19, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 69, 140, 365));
+        getContentPane().add(Table19, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 550, 280, 80));
 
         Table20.setBackground(new java.awt.Color(255, 51, 51));
         Table20.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Table20.setText("Table20");
+        Table20.setName("20"); // NOI18N
         Table20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Table20ActionPerformed(evt);
             }
         });
-        getContentPane().add(Table20, new org.netbeans.lib.awtextra.AbsoluteConstraints(705, 69, 140, 365));
+        getContentPane().add(Table20, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 410, 110, 120));
 
         jButton21.setText("Remove user");
         jButton21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -306,15 +336,25 @@ public class Table extends javax.swing.JFrame {
                 jButton21ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 0, 170, 30));
+        getContentPane().add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, 170, 30));
 
-        jButton22.setText("jButton1");
+        jButton22.setText("Total sales");
         jButton22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, 170, 30));
+        jButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton22ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 170, 30));
 
         jButton23.setText("End day");
         jButton23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 0, 170, 30));
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 0, 170, 30));
 
         jButton29.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton29.setText("Logout");
@@ -324,11 +364,35 @@ public class Table extends javax.swing.JFrame {
                 jButton29ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton29, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 0, 130, 30));
+        getContentPane().add(jButton29, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 0, 170, 30));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Background/background-image.jpg"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 710));
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("BAR");
+        jLabel7.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabel7AncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 430, 270, 90));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("BAR");
+        jLabel8.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabel8AncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 280, 100));
 
         setBounds(400, 175, 1153, 744);
     }// </editor-fold>//GEN-END:initComponents
@@ -487,12 +551,8 @@ public class Table extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_Table5ActionPerformed
 
-    private void jLabel3AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel3AncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel3AncestorAdded
-
     private void jLabel1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel1AncestorAdded
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jLabel1AncestorAdded
 
     private void Table20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Table20ActionPerformed
@@ -567,7 +627,17 @@ public class Table extends javax.swing.JFrame {
     }//GEN-LAST:event_Table1ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
-        new Login().setVisible(true);
+        try {
+            new Login().setVisible(true);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
     }//GEN-LAST:event_jButton29ActionPerformed
 
@@ -575,58 +645,31 @@ public class Table extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton21ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(Table2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(Table2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(Table2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(Table2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//        
-//        
-//
-//        /* Create and display the form */
-//        
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                try {
-//                    new Table2().setVisible(true);
-//                } catch (ClassNotFoundException ex) {
-//                    Logger.getLogger(Table2.class.getName()).log(Level.SEVERE, null, ex);
-//                } catch (InstantiationException ex) {
-//                    Logger.getLogger(Table2.class.getName()).log(Level.SEVERE, null, ex);
-//                } catch (IllegalAccessException ex) {
-//                    Logger.getLogger(Table2.class.getName()).log(Level.SEVERE, null, ex);
-//                } catch (UnsupportedLookAndFeelException ex) {
-//                    Logger.getLogger(Table2.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//                 
-//            }
-//            
-//        });
-//        
-//    }
+    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
 
+    }//GEN-LAST:event_jButton22ActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        for (int i = 0; i < 20; i++) {
+            String tablenumber = "";
+            try {
+                TableManager.resetText(tablenumber + i);
+            } catch (IOException ex) {
+                Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jButton23ActionPerformed
+
+    private void jLabel7AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel7AncestorAdded
+
+    }//GEN-LAST:event_jLabel7AncestorAdded
+
+    private void jLabel8AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel8AncestorAdded
+
+    }//GEN-LAST:event_jLabel8AncestorAdded
+    public void openTable(){
+        
+    }   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Table1;
     private javax.swing.JButton Table10;
@@ -654,7 +697,7 @@ public class Table extends javax.swing.JFrame {
     private javax.swing.JButton jButton29;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
 }

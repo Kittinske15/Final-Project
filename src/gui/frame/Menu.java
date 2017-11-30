@@ -1,11 +1,8 @@
-package gui;
+package gui.frame;
 
-import Codes.Menus;
-import Codes.tableManage;
+import model.TableManager;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,10 +17,12 @@ public class Menu extends javax.swing.JFrame {
         initComponents();
         this.number = tablenum;
         display.setEnabled(false);
-        //tableManage.resetMap();
-        //newDisplay();
+        Total.setEnabled(false);
+        newDisplay();
         jScrollPane2.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane2.getVerticalScrollBar().setUnitIncrement(16);
+        jScrollPane20.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane20.getVerticalScrollBar().setUnitIncrement(16);
     }
 
     @SuppressWarnings("unchecked")
@@ -108,6 +107,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel36 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("RESTAURANT POS (made by Kit&Bank)");
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -136,9 +136,15 @@ public class Menu extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
-        jLabel3.setText("Total");
+        jLabel3.setText("Total:");
 
+        Total.setFont(new java.awt.Font("Tahoma", 0, 26)); // NOI18N
         Total.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Total.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TotalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -147,18 +153,18 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Total, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Total, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Total, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(7, 7, 7))
         );
 
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -227,10 +233,11 @@ public class Menu extends javax.swing.JFrame {
         );
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.setPreferredSize(new java.awt.Dimension(893, 1640));
+        jPanel1.setPreferredSize(new java.awt.Dimension(893, 1680));
 
         RicePlate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Menu_list/ricedisk.jpg"))); // NOI18N
-        RicePlate.setBorder(null);
+        RicePlate.setMaximumSize(new java.awt.Dimension(185, 115));
+        RicePlate.setMinimumSize(new java.awt.Dimension(185, 115));
         RicePlate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RicePlateActionPerformed(evt);
@@ -244,6 +251,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel8.setText("Rice / Bowl");
 
         RiceBowl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Menu_list/ricetoh.jpg"))); // NOI18N
+        RiceBowl.setMaximumSize(new java.awt.Dimension(185, 115));
+        RiceBowl.setMinimumSize(new java.awt.Dimension(185, 115));
         RiceBowl.setPreferredSize(new java.awt.Dimension(185, 115));
         RiceBowl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -252,7 +261,8 @@ public class Menu extends javax.swing.JFrame {
         });
 
         Porridge.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Menu_list/porridge.jpg"))); // NOI18N
-        Porridge.setBorder(null);
+        Porridge.setMaximumSize(new java.awt.Dimension(185, 115));
+        Porridge.setMinimumSize(new java.awt.Dimension(185, 115));
         Porridge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PorridgeActionPerformed(evt);
@@ -263,7 +273,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel9.setText("Porridge");
 
         PorkGreenCurry.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Menu_list/Thai-Green-Curry-Chicken.jpg"))); // NOI18N
-        PorkGreenCurry.setBorder(null);
+        PorkGreenCurry.setMaximumSize(new java.awt.Dimension(185, 115));
+        PorkGreenCurry.setMinimumSize(new java.awt.Dimension(185, 115));
         PorkGreenCurry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PorkGreenCurryActionPerformed(evt);
@@ -274,7 +285,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel10.setText("Pork green curry");
 
         BeefCurry.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Menu_list/beefcurry.jpg"))); // NOI18N
-        BeefCurry.setBorder(null);
+        BeefCurry.setMaximumSize(new java.awt.Dimension(185, 115));
+        BeefCurry.setMinimumSize(new java.awt.Dimension(185, 115));
         BeefCurry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BeefCurryActionPerformed(evt);
@@ -285,7 +297,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel11.setText("Beef curry");
 
         FishBallSoup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Menu_list/fish-ball-s-0311-2.jpg"))); // NOI18N
-        FishBallSoup.setBorder(null);
+        FishBallSoup.setMaximumSize(new java.awt.Dimension(185, 115));
+        FishBallSoup.setMinimumSize(new java.awt.Dimension(185, 115));
         FishBallSoup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FishBallSoupActionPerformed(evt);
@@ -296,7 +309,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel12.setText("Fish ball soup");
 
         FriedFishCurry.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Menu_list/fried fish.JPG"))); // NOI18N
-        FriedFishCurry.setBorder(null);
+        FriedFishCurry.setMaximumSize(new java.awt.Dimension(185, 115));
+        FriedFishCurry.setMinimumSize(new java.awt.Dimension(185, 115));
         FriedFishCurry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FriedFishCurryActionPerformed(evt);
@@ -307,7 +321,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel13.setText("Fried fish curry");
 
         CrabCurry.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Menu_list/crab meat curry.jpg"))); // NOI18N
-        CrabCurry.setBorder(null);
+        CrabCurry.setMaximumSize(new java.awt.Dimension(185, 115));
+        CrabCurry.setMinimumSize(new java.awt.Dimension(185, 115));
         CrabCurry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CrabCurryActionPerformed(evt);
@@ -318,7 +333,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel14.setText("Crab meat yellow curry");
 
         PanFriedSeafood.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Menu_list/Panfried.jpg"))); // NOI18N
-        PanFriedSeafood.setBorder(null);
+        PanFriedSeafood.setMaximumSize(new java.awt.Dimension(185, 115));
+        PanFriedSeafood.setMinimumSize(new java.awt.Dimension(185, 115));
         PanFriedSeafood.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PanFriedSeafoodActionPerformed(evt);
@@ -329,7 +345,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel15.setText("Pan fried seafood");
 
         ChickenCashewNuts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Menu_list/Chicken-cashew-nuts-featured-photo.jpg"))); // NOI18N
-        ChickenCashewNuts.setBorder(null);
+        ChickenCashewNuts.setMaximumSize(new java.awt.Dimension(185, 115));
+        ChickenCashewNuts.setMinimumSize(new java.awt.Dimension(185, 115));
         ChickenCashewNuts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ChickenCashewNutsActionPerformed(evt);
@@ -340,7 +357,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel16.setText("Chicken with cashew nuts");
 
         StirFriedVegetables.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Menu_list/Spicy-Garlic-Vegetable-StirFry.jpg"))); // NOI18N
-        StirFriedVegetables.setBorder(null);
+        StirFriedVegetables.setMaximumSize(new java.awt.Dimension(185, 115));
+        StirFriedVegetables.setMinimumSize(new java.awt.Dimension(185, 115));
         StirFriedVegetables.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 StirFriedVegetablesActionPerformed(evt);
@@ -351,7 +369,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel17.setText("Stir-fried vegetables");
 
         FriedPork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Menu_list/fried pork.jpg"))); // NOI18N
-        FriedPork.setBorder(null);
+        FriedPork.setMaximumSize(new java.awt.Dimension(185, 115));
+        FriedPork.setMinimumSize(new java.awt.Dimension(185, 115));
         FriedPork.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FriedPorkActionPerformed(evt);
@@ -362,7 +381,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel18.setText("Fried pork with garlic");
 
         Omelet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Menu_list/omelet.jpg"))); // NOI18N
-        Omelet.setBorder(null);
+        Omelet.setMaximumSize(new java.awt.Dimension(185, 115));
+        Omelet.setMinimumSize(new java.awt.Dimension(185, 115));
         Omelet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OmeletActionPerformed(evt);
@@ -376,7 +396,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel20.setText("Century egg");
 
         CenturyEgg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Menu_list/century_egg_07.jpg"))); // NOI18N
-        CenturyEgg.setBorder(null);
+        CenturyEgg.setMaximumSize(new java.awt.Dimension(185, 115));
+        CenturyEgg.setMinimumSize(new java.awt.Dimension(185, 115));
         CenturyEgg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CenturyEggActionPerformed(evt);
@@ -384,7 +405,8 @@ public class Menu extends javax.swing.JFrame {
         });
 
         GrilledSeafood.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Menu_list/GrilledSeafoodSalad18-thumb-596x350-350832.jpg"))); // NOI18N
-        GrilledSeafood.setBorder(null);
+        GrilledSeafood.setMaximumSize(new java.awt.Dimension(185, 115));
+        GrilledSeafood.setMinimumSize(new java.awt.Dimension(185, 115));
         GrilledSeafood.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GrilledSeafoodActionPerformed(evt);
@@ -395,7 +417,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel21.setText("Grilled seafood salad");
 
         GrilledChicken.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Menu_list/chicken.jpg"))); // NOI18N
-        GrilledChicken.setBorder(null);
+        GrilledChicken.setMaximumSize(new java.awt.Dimension(185, 115));
+        GrilledChicken.setMinimumSize(new java.awt.Dimension(185, 115));
         GrilledChicken.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GrilledChickenActionPerformed(evt);
@@ -406,7 +429,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel22.setText("Grilled chicken");
 
         ChickenWings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Menu_list/chicken wings.jpg"))); // NOI18N
-        ChickenWings.setBorder(null);
+        ChickenWings.setMaximumSize(new java.awt.Dimension(185, 115));
+        ChickenWings.setMinimumSize(new java.awt.Dimension(185, 115));
         ChickenWings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ChickenWingsActionPerformed(evt);
@@ -417,7 +441,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel23.setText("Chicken wings");
 
         ChickenLegs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Menu_list/chicken legs.jpeg"))); // NOI18N
-        ChickenLegs.setBorder(null);
+        ChickenLegs.setMaximumSize(new java.awt.Dimension(185, 115));
+        ChickenLegs.setMinimumSize(new java.awt.Dimension(185, 115));
         ChickenLegs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ChickenLegsActionPerformed(evt);
@@ -428,7 +453,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel24.setText("Chicken legs");
 
         BeefSteak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Menu_list/beef steak.jpg"))); // NOI18N
-        BeefSteak.setBorder(null);
+        BeefSteak.setMaximumSize(new java.awt.Dimension(185, 115));
+        BeefSteak.setMinimumSize(new java.awt.Dimension(185, 115));
         BeefSteak.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BeefSteakActionPerformed(evt);
@@ -439,7 +465,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel25.setText("Beef steak");
 
         DriedBeef.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Menu_list/dried beef.jpg"))); // NOI18N
-        DriedBeef.setBorder(null);
+        DriedBeef.setMaximumSize(new java.awt.Dimension(185, 115));
+        DriedBeef.setMinimumSize(new java.awt.Dimension(185, 115));
         DriedBeef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DriedBeefActionPerformed(evt);
@@ -454,104 +481,104 @@ public class Menu extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(RicePlate)
-                .addGap(27, 27, 27)
+                .addGap(49, 49, 49)
+                .addComponent(RicePlate, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
                 .addComponent(RiceBowl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(87, 87, 87)
                 .addComponent(jLabel7)
-                .addGap(135, 135, 135)
+                .addGap(173, 173, 173)
                 .addComponent(jLabel8))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(Porridge)
-                .addGap(27, 27, 27)
-                .addComponent(PorkGreenCurry))
+                .addGap(49, 49, 49)
+                .addComponent(Porridge, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(PorkGreenCurry, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(87, 87, 87)
+                .addGap(99, 99, 99)
                 .addComponent(jLabel9)
-                .addGap(140, 140, 140)
+                .addGap(160, 160, 160)
                 .addComponent(jLabel10))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(BeefCurry)
-                .addGap(27, 27, 27)
-                .addComponent(FishBallSoup))
+                .addComponent(BeefCurry, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61)
+                .addComponent(FishBallSoup, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(87, 87, 87)
                 .addComponent(jLabel11)
-                .addGap(141, 141, 141)
+                .addGap(171, 171, 171)
                 .addComponent(jLabel12))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(FriedFishCurry)
-                .addGap(27, 27, 27)
-                .addComponent(CrabCurry))
+                .addComponent(FriedFishCurry, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addComponent(CrabCurry, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(87, 87, 87)
                 .addComponent(jLabel13)
-                .addGap(73, 73, 73)
+                .addGap(106, 106, 106)
                 .addComponent(jLabel14))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(PanFriedSeafood)
-                .addGap(27, 27, 27)
-                .addComponent(ChickenCashewNuts))
+                .addComponent(PanFriedSeafood, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64)
+                .addComponent(ChickenCashewNuts, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(77, 77, 77)
                 .addComponent(jLabel15)
-                .addGap(56, 56, 56)
+                .addGap(89, 89, 89)
                 .addComponent(jLabel16))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
-                .addComponent(StirFriedVegetables)
-                .addGap(25, 25, 25)
-                .addComponent(FriedPork))
+                .addComponent(StirFriedVegetables, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
+                .addComponent(FriedPork, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(jLabel17)
                 .addGap(59, 59, 59)
+                .addComponent(jLabel17)
+                .addGap(109, 109, 109)
                 .addComponent(jLabel18))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
-                .addComponent(Omelet)
-                .addGap(25, 25, 25)
-                .addComponent(CenturyEgg))
+                .addComponent(Omelet, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
+                .addComponent(CenturyEgg, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(109, 109, 109)
                 .addComponent(jLabel19)
-                .addGap(139, 139, 139)
+                .addGap(179, 179, 179)
                 .addComponent(jLabel20))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
-                .addComponent(GrilledSeafood)
-                .addGap(25, 25, 25)
-                .addComponent(GrilledChicken))
+                .addComponent(GrilledSeafood, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
+                .addComponent(GrilledChicken, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addGap(59, 59, 59)
                 .addComponent(jLabel21)
-                .addGap(83, 83, 83)
+                .addGap(123, 123, 123)
                 .addComponent(jLabel22))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
-                .addComponent(ChickenWings)
-                .addGap(25, 25, 25)
-                .addComponent(ChickenLegs))
+                .addComponent(ChickenWings, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
+                .addComponent(ChickenLegs, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(89, 89, 89)
                 .addComponent(jLabel23)
-                .addGap(109, 109, 109)
+                .addGap(139, 139, 139)
                 .addComponent(jLabel24))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
-                .addComponent(BeefSteak)
-                .addGap(25, 25, 25)
-                .addComponent(DriedBeef))
+                .addComponent(BeefSteak, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
+                .addComponent(DriedBeef, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
+                .addGap(89, 89, 89)
                 .addComponent(jLabel25)
-                .addGap(129, 129, 129)
+                .addGap(179, 179, 179)
                 .addComponent(jLabel26))
         );
         jPanel1Layout.setVerticalGroup(
@@ -559,83 +586,101 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(RicePlate)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(RicePlate, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(RiceBowl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel8))
-                .addGap(18, 18, 18)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel8)))
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Porridge)
-                    .addComponent(PorkGreenCurry))
-                .addGap(7, 7, 7)
+                    .addComponent(Porridge, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PorkGreenCurry, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(jLabel10))
-                .addGap(18, 18, 18)
+                .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BeefCurry)
-                    .addComponent(FishBallSoup))
-                .addGap(7, 7, 7)
+                    .addComponent(BeefCurry, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FishBallSoup, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabel11))
                     .addComponent(jLabel12))
-                .addGap(13, 13, 13)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(FriedFishCurry)
-                    .addComponent(CrabCurry))
+                    .addComponent(FriedFishCurry, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CrabCurry, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13)
-                    .addComponent(jLabel14))
-                .addGap(7, 7, 7)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel14)))
+                .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanFriedSeafood)
-                    .addComponent(ChickenCashewNuts))
-                .addGap(7, 7, 7)
+                    .addComponent(PanFriedSeafood, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ChickenCashewNuts, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabel15))
                     .addComponent(jLabel16))
-                .addGap(6, 6, 6)
+                .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(StirFriedVegetables)
-                    .addComponent(FriedPork))
-                .addGap(15, 15, 15)
+                    .addComponent(StirFriedVegetables, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FriedPork, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel17)
                     .addComponent(jLabel18))
+                .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Omelet)
-                    .addComponent(CenturyEgg))
-                .addGap(15, 15, 15)
+                    .addComponent(Omelet, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(CenturyEgg, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(9, 9, 9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel19)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel19))
                     .addComponent(jLabel20))
-                .addGap(10, 10, 10)
+                .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(GrilledSeafood)
-                    .addComponent(GrilledChicken))
-                .addGap(15, 15, 15)
+                    .addComponent(GrilledSeafood, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(GrilledChicken, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel21)
                     .addComponent(jLabel22))
-                .addGap(10, 10, 10)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ChickenWings)
-                    .addComponent(ChickenLegs))
-                .addGap(15, 15, 15)
+                    .addComponent(ChickenWings, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ChickenLegs, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel23)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel23))
                     .addComponent(jLabel24))
-                .addGap(10, 10, 10)
+                .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BeefSteak)
-                    .addComponent(DriedBeef))
-                .addGap(15, 15, 15)
+                    .addComponent(BeefSteak, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DriedBeef, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel25)
-                    .addComponent(jLabel26)))
+                    .addComponent(jLabel26))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(jPanel1);
@@ -803,10 +848,13 @@ public class Menu extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(43, 43, 43)
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -819,220 +867,233 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        tableManage.resetMap();
+        TableManager.resetMap();
         try {
             newDisplay();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
-        tableManage.resetArrList();
- 
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        tableManage.resetMap();
-        tableManage.resetArrList();
-        try {
-            new Table().setVisible(true);
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        TableManager.resetMap();
+        new Table().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void GrilledSeafoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GrilledSeafoodActionPerformed
-        tableManage.addDish("Grilled Chicken");
+        TableManager.addDish("Grilled Chicken");
         preDisplay();
+
     }//GEN-LAST:event_GrilledSeafoodActionPerformed
 
     private void CenturyEggActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CenturyEggActionPerformed
-        tableManage.addDish("Century Egg");
+        TableManager.addDish("Century Egg");
         preDisplay();
     }//GEN-LAST:event_CenturyEggActionPerformed
 
     private void OmeletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OmeletActionPerformed
-        tableManage.addDish("Omelet");
+        TableManager.addDish("Omelet");
         preDisplay();
     }//GEN-LAST:event_OmeletActionPerformed
 
     private void FriedPorkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FriedPorkActionPerformed
-        tableManage.addDish("Fried Pork with Garlic");
+        TableManager.addDish("Fried Pork with Garlic");
         preDisplay();
     }//GEN-LAST:event_FriedPorkActionPerformed
 
     private void StirFriedVegetablesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StirFriedVegetablesActionPerformed
-        tableManage.addDish("Stir Fried Vegetables");
+        TableManager.addDish("Stir Fried Vegetables");
         preDisplay();
     }//GEN-LAST:event_StirFriedVegetablesActionPerformed
 
     private void ChickenCashewNutsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChickenCashewNutsActionPerformed
-        tableManage.addDish("Chicken with Cashew Nuts");
+        TableManager.addDish("Chicken with Cashew Nuts");
         preDisplay();
     }//GEN-LAST:event_ChickenCashewNutsActionPerformed
 
     private void PanFriedSeafoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PanFriedSeafoodActionPerformed
-        tableManage.addDish("Pan Fried Seafood");
+        TableManager.addDish("Pan Fried Seafood");
         preDisplay();
     }//GEN-LAST:event_PanFriedSeafoodActionPerformed
 
     private void CrabCurryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrabCurryActionPerformed
-        tableManage.addDish("Crab Meat Yellow Curry");
+        TableManager.addDish("Crab Meat Yellow Curry");
         preDisplay();
     }//GEN-LAST:event_CrabCurryActionPerformed
 
     private void FriedFishCurryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FriedFishCurryActionPerformed
-        tableManage.addDish("Fried Fish Curry");
+        TableManager.addDish("Fried Fish Curry");
         preDisplay();
     }//GEN-LAST:event_FriedFishCurryActionPerformed
 
     private void FishBallSoupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FishBallSoupActionPerformed
-        tableManage.addDish("Fish Ball Soup");
+        TableManager.addDish("Fish Ball Soup");
         preDisplay();
     }//GEN-LAST:event_FishBallSoupActionPerformed
 
     private void BeefCurryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeefCurryActionPerformed
-        tableManage.addDish("Beef Curry");
+        TableManager.addDish("Beef Curry");
         preDisplay();
     }//GEN-LAST:event_BeefCurryActionPerformed
 
     private void PorkGreenCurryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PorkGreenCurryActionPerformed
-        tableManage.addDish("Pork Green Curry");
+        TableManager.addDish("Pork Green Curry");
         preDisplay();
     }//GEN-LAST:event_PorkGreenCurryActionPerformed
 
     private void PorridgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PorridgeActionPerformed
-        tableManage.addDish("Porridge");
+        TableManager.addDish("Porridge");
         preDisplay();
     }//GEN-LAST:event_PorridgeActionPerformed
 
     private void RiceBowlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiceBowlActionPerformed
-        tableManage.addDish("Rice (bowl)");
+        TableManager.addDish("Rice (bowl)");
         preDisplay();
     }//GEN-LAST:event_RiceBowlActionPerformed
 
     private void RicePlateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RicePlateActionPerformed
-        tableManage.addDish("Rice (plate)");
+        TableManager.addDish("Rice (plate)");
         preDisplay();
     }//GEN-LAST:event_RicePlateActionPerformed
 
     private void GrilledChickenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GrilledChickenActionPerformed
-        tableManage.addDish("Grilled Chicken");
+        TableManager.addDish("Grilled Chicken");
         preDisplay();
     }//GEN-LAST:event_GrilledChickenActionPerformed
 
     private void ChickenWingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChickenWingsActionPerformed
-        tableManage.addDish("Chicken Wings");
+        TableManager.addDish("Chicken Wings");
         preDisplay();
     }//GEN-LAST:event_ChickenWingsActionPerformed
 
     private void ChickenLegsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChickenLegsActionPerformed
-        tableManage.addDish("Chicken Legs");
+        TableManager.addDish("Chicken Legs");
         preDisplay();
     }//GEN-LAST:event_ChickenLegsActionPerformed
 
     private void BeefSteakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeefSteakActionPerformed
-        tableManage.addDish("Beef Steak");
+        TableManager.addDish("Beef Steak");
         preDisplay();
     }//GEN-LAST:event_BeefSteakActionPerformed
 
     private void DriedBeefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DriedBeefActionPerformed
-        tableManage.addDish("Dried Beef");
+        TableManager.addDish("Dried Beef");
         preDisplay();
     }//GEN-LAST:event_DriedBeefActionPerformed
 
     private void WaterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WaterActionPerformed
-        tableManage.addDish("Water");
+        TableManager.addDish("Water");
         preDisplay();
     }//GEN-LAST:event_WaterActionPerformed
 
     private void MineralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MineralActionPerformed
-        tableManage.addDish("Mineral Water");
+        TableManager.addDish("Mineral Water");
         preDisplay();
     }//GEN-LAST:event_MineralActionPerformed
 
     private void CokeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CokeActionPerformed
-        tableManage.addDish("Coke");
+        TableManager.addDish("Coke");
         preDisplay();
     }//GEN-LAST:event_CokeActionPerformed
 
     private void IcedCoffeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IcedCoffeeActionPerformed
-        tableManage.addDish("Iced Coffee");
+        TableManager.addDish("Iced Coffee");
         preDisplay();
     }//GEN-LAST:event_IcedCoffeeActionPerformed
 
     private void IcedCocoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IcedCocoaActionPerformed
-        tableManage.addDish("Iced Cocoa");
+        TableManager.addDish("Iced Cocoa");
         preDisplay();
     }//GEN-LAST:event_IcedCocoaActionPerformed
 
     private void IcedLemonTeaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IcedLemonTeaActionPerformed
-        tableManage.addDish("Iced Lemon Tea");
+        TableManager.addDish("Iced Lemon Tea");
         preDisplay();
     }//GEN-LAST:event_IcedLemonTeaActionPerformed
 
     private void LatteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LatteActionPerformed
-        tableManage.addDish("Iced Green Tea");
+        TableManager.addDish("Iced Green Tea");
         preDisplay();
     }//GEN-LAST:event_LatteActionPerformed
 
     private void ThaiTeaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThaiTeaActionPerformed
-        tableManage.addDish("Thai Iced Tea");
+        TableManager.addDish("Thai Iced Tea");
         preDisplay();
     }//GEN-LAST:event_ThaiTeaActionPerformed
 
     private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
-        tableManage.addDish("Leo (bottle)");
+        TableManager.addDish("Leo (bottle)");
         preDisplay();
     }//GEN-LAST:event_jButton35ActionPerformed
 
     private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
-        tableManage.addDish("Sapporo (bottle)");
+        TableManager.addDish("Sapporo (bottle)");
         preDisplay();
     }//GEN-LAST:event_jButton36ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
-            tableManage.ordertoText(number);
+            TableManager.ordertoText(number);
         } catch (IOException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            newDisplay();
+        } catch (FileNotFoundException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            tableManage.resetText(number);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        new Check_bills(number).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
-   /**
-    *display the sorted quantity from text
-    */
+
+    private void TotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TotalActionPerformed
+
+    }//GEN-LAST:event_TotalActionPerformed
+    /**
+     * display the sorted quantity from text
+     */
     public void newDisplay() throws FileNotFoundException {
-        ArrayList<String> qty = tableManage.getTable(number);
-        tableManage.tableQty(qty);
         String str = "";
-        for (Map.Entry<String, Integer> newqty : tableManage.gettableQty().entrySet()) {
+        TableManager.getTable(number);
+        Map<String, Integer> tableqty = TableManager.gettableQty();
+        for (Map.Entry<String, Integer> newqty : tableqty.entrySet()) {
             String key = newqty.getKey();
             Integer value = newqty.getValue();
             str += String.format("%-25s %10d\n", key, value);
         }
         display.setText(str);
+        TableManager.resetMap();
     }
+
     /**
-    *display the current quantity
-    */
+     * display the current quantity
+     */
     public void preDisplay() {
         String str = "";
-        for (Map.Entry<String, Integer> dish : tableManage.gettableQty().entrySet()) {
+        for (Map.Entry<String, Integer> dish : TableManager.gettableQty().entrySet()) {
             String key = dish.getKey();
             Integer value = dish.getValue();
             str += String.format("%-25s %10d\n", key, value);
         }
         display.setText(str);
     }
+
+    /**
+     * show the total
+     */
+//    public void show() {
+//        try {
+//            TableManager.getTable(number);
+//        } catch (FileNotFoundException ex) {
+//            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        double total = TableManager.returnTotal();
+//        Total.setText(String.format("%-20.2f", total));
+//    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BeefCurry;
     private javax.swing.JButton BeefSteak;

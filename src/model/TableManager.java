@@ -1,18 +1,16 @@
-package Codes;
+package model;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class tableManage {
+public class TableManager {
 
-    static ArrayList<String> tablenumber = new ArrayList<>();
     static Map<String, Integer> foodQty = new LinkedHashMap<>();
 
     /**
@@ -20,36 +18,37 @@ public class tableManage {
      *
      * @throws FileNotFoundException
      */
-    public static ArrayList<String> getTable(String number) throws FileNotFoundException {
+    public static void getTable(String number) throws FileNotFoundException {
         File table = new File("src/Texts/table" + number + ".txt");
         Scanner scan = new Scanner(table);
         while (scan.hasNextLine()) {
-            tablenumber.add(scan.nextLine().trim());
+            String phrase = scan.nextLine().trim();
+            String[] qty = phrase.split(";");
+            if (foodQty.containsKey(qty[0])) {
+                Integer newqty = foodQty.get(qty[0]) + Integer.parseInt(qty[1]);
+                foodQty.put(qty[0], newqty);
+            } else {
+                foodQty.put(qty[0], Integer.parseInt(qty[1]));
+            }
         }
         scan.close();
-        return tablenumber;
     }
 
     /**
      * return the sum of that table
+     *
+     * @param Map<K,V>
      */
-    public static double returnTotal(ArrayList<String> tablelist) {
+    public static double returnTotal() {
         double sum = 0.0;
-        for (int i = 0; i < tablelist.size(); i++) {
-            sum += Menus.getthatCost(tablelist.get(i));
+        for (Map.Entry<String, Integer> eachfood : foodQty.entrySet()) {
+            String foodname = eachfood.getKey();
+            int qty = eachfood.getValue();
+            sum += Menus.getthatCost(foodname) * qty;
         }
         return sum;
     }
 
-    /**
-     * add each food with quantities to Map
-     */
-    public static void tableQty(ArrayList<String> tablelist) {
-        for (int i = 0; i < tablelist.size(); i++) {
-            addtoMap(tablelist.get(i));
-        }
-    }
-    
     /**
      * sort the food quantities
      */
@@ -60,10 +59,10 @@ public class tableManage {
             foodQty.put(name, 1);
         }
     }
+
     /**
-    *return the present quantity which is collected
-    * in the Map
-    */
+     * return the present quantity which is collected in the Map
+     */
     public static Map<String, Integer> gettableQty() {
         return foodQty;
     }
@@ -72,7 +71,6 @@ public class tableManage {
      * add that dish to the list for that table
      */
     public static void addDish(String name) {
-        tablenumber.add(name);
         addtoMap(name);
     }
 
@@ -81,12 +79,13 @@ public class tableManage {
      */
     public static void ordertoText(String number) throws IOException {
         BufferedWriter bw = new BufferedWriter(new FileWriter("src/Texts/table" + number + ".txt", true));
-        for (int i = 0; i < tablenumber.size(); i++) {
-            bw.write(tablenumber.get(i));
-            bw.newLine();
+        for (Map.Entry<String, Integer> qty : foodQty.entrySet()) {
+            String key = qty.getKey();
+            Integer value = qty.getValue();
+            bw.write(String.format("%s;%d\n", key, value));
         }
         bw.close();
-        tablenumber.removeAll(tablenumber);
+        resetMap();
     }
 
     /**
@@ -106,10 +105,23 @@ public class tableManage {
     public static void resetMap() {
         foodQty.clear();
     }
-    /**
-    *remove all ordered dishes
-    */
-    public static void resetArrList(){
-        tablenumber.clear();
-    }
+
+//    /*
+//    *Show the ordered item while keeping the items that is waiting to be ordered
+//     */
+//    public static String showCurrent(String number) throws FileNotFoundException {
+//        Map<String, Integer> tempQty = new LinkedHashMap<>(foodQty);
+//        foodQty.clear();
+//       String str = "";
+//        getTable(number);
+//        for (Map.Entry<String, Integer> qty : foodQty.entrySet()) {
+//            String key = qty.getKey();
+//            Integer value = qty.getValue();
+//            str += String.format("%-25s %10d\n", key, value);
+//        }
+//        foodQty.clear();
+//        foodQty = new LinkedHashMap<>(tempQty);
+//        tempQty.clear();
+//        return str;
+//    }
 }
