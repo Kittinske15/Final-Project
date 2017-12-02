@@ -38,8 +38,10 @@ public class TableManager {
      * return the sum of that table
      *
      * @param Map<K,V>
+     * @throws FileNotFoundException 
      */
-    public static double returnTotal() {
+    public static double returnTotal(String number) throws FileNotFoundException {
+    	getTable(number);
         double sum = 0.0;
         for (Map.Entry<String, Integer> eachfood : foodQty.entrySet()) {
             String foodname = eachfood.getKey();
@@ -105,23 +107,4 @@ public class TableManager {
     public static void resetMap() {
         foodQty.clear();
     }
-
-//    /*
-//    *Show the ordered item while keeping the items that is waiting to be ordered
-//     */
-//    public static String showCurrent(String number) throws FileNotFoundException {
-//        Map<String, Integer> tempQty = new LinkedHashMap<>(foodQty);
-//        foodQty.clear();
-//       String str = "";
-//        getTable(number);
-//        for (Map.Entry<String, Integer> qty : foodQty.entrySet()) {
-//            String key = qty.getKey();
-//            Integer value = qty.getValue();
-//            str += String.format("%-25s %10d\n", key, value);
-//        }
-//        foodQty.clear();
-//        foodQty = new LinkedHashMap<>(tempQty);
-//        tempQty.clear();
-//        return str;
-//    }
 }
