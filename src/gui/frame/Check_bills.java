@@ -274,7 +274,7 @@ public class Check_bills extends javax.swing.JFrame {
                     Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 TableManager.resetMap();
-                Menu(number).getMainFrame.dispose();
+                //Menu(number).getMainFrame.dispose();
                 new Table().setVisible(true);
                 this.dispose();
             } else {
