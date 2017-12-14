@@ -11,7 +11,5 @@ public class Main {
         UserList.setUser();
         Menus.setMenu();
         new Login().setVisible(true);
-        //new Table().setVisible(true);
-
     }
 }
