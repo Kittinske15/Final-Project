@@ -17,7 +17,7 @@ public class Menu extends javax.swing.JFrame {
 
 	public Menu(String tablenum) throws FileNotFoundException {
 		initComponents();
-                Total.applyComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+		Total.applyComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 		Total.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 		Total.setAlignmentX(JTextArea.RIGHT_ALIGNMENT);
 		this.number = tablenum;
@@ -1054,7 +1054,6 @@ public class Menu extends javax.swing.JFrame {
 	 */
 	public void preDisplay() {
 		String str = "";
-		String price = null;
 		for (Map.Entry<String, Integer> dish : TableManager.gettableQty().entrySet()) {
 			String key = dish.getKey();
 			Integer value = dish.getValue();
@@ -1063,18 +1062,6 @@ public class Menu extends javax.swing.JFrame {
 		display.setText(str);
 	}
 
-	/**
-	 * show the total
-	 */
-	// public void show() {
-	// try {
-	// TableManager.getTable(number);
-	// } catch (FileNotFoundException ex) {
-	// Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-	// }
-	// double total = TableManager.returnTotal();
-	// Total.setText(String.format("%-20.2f", total));
-	// }
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JButton BeefCurry;
 	private javax.swing.JButton BeefSteak;

@@ -7,9 +7,10 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class Main {
 
-    public static void main(String[] args) throws FileNotFoundException, ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
-        UserList.setUser();
-        Menus.setMenu();
-        new Login().setVisible(true);
-    }
+	public static void main(String[] args) throws FileNotFoundException, ClassNotFoundException, InstantiationException,
+			IllegalAccessException, UnsupportedLookAndFeelException {
+		UserList.setUser();
+		Menus.setMenu();
+		new Login().setVisible(true);
+	}
 }
