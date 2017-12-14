@@ -634,7 +634,7 @@ public class Table extends javax.swing.JFrame {
 	}// GEN-LAST:event_jButton22ActionPerformed
 
 	private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton23ActionPerformed
-		int show = JOptionPane.showConfirmDialog(null, "Are you sure?", "WARNING!", JOptionPane.OK_OPTION);
+		int show = JOptionPane.showConfirmDialog(null, "This action will clear every orders, are you sure to continue?  (this can't be undone)", "WARNING!", JOptionPane.OK_OPTION);
 		JFrame error = new JFrame("CHECK!!!");
 		error.setSize(401, 401);
 		if (show == JOptionPane.OK_OPTION) {
