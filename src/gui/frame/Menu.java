@@ -14,9 +14,11 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class Menu extends javax.swing.JFrame {
 
 	private String number;
+	public static boolean enable = true;
 
 	public Menu(String tablenum) throws FileNotFoundException {
 		initComponents();
+		enable = true;
 		Total.applyComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 		Total.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 		Total.setAlignmentX(JTextArea.RIGHT_ALIGNMENT);
@@ -846,7 +848,7 @@ public class Menu extends javax.swing.JFrame {
 		} catch (FileNotFoundException ex) {
 			Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
 		}
-
+		enable = true;
 	}// GEN-LAST:event_jButton3ActionPerformed
 
 	private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton5ActionPerformed
@@ -1021,7 +1023,11 @@ public class Menu extends javax.swing.JFrame {
 	}// GEN-LAST:event_jButton2ActionPerformed
 
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {// GEN-FIRST:event_jButton1ActionPerformed
+		if (enable){
 		new Check_bills(number, this).setVisible(true);
+		
+		enable = false;
+		}
 	}// GEN-LAST:event_jButton1ActionPerformed
 
 	private void TotalActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_TotalActionPerformed
