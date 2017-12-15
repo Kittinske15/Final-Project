@@ -44,6 +44,8 @@ UI(User interface) : to interact the program.
 
 ![menu](https://user-images.githubusercontent.com/32289827/34027883-3997863c-e192-11e7-888f-0c5f60b1c108.PNG)
 
+![checkbills](https://user-images.githubusercontent.com/32289827/34027938-9c2213a8-e192-11e7-9b44-028a1cff7405.PNG)
+
 ![totalsales](https://user-images.githubusercontent.com/32289827/34027859-049324be-e192-11e7-8c59-e7873483cc2e.PNG)
 
 ## Download Link:
