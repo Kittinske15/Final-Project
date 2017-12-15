@@ -46,4 +46,7 @@ UI(User interface) : to interact the program.
 
 ![pasted image 0 1](https://user-images.githubusercontent.com/32285869/32792911-23693a94-c997-11e7-8bcd-7c509ffb6879.png)
 
+## Download Link:
+https://github.com/Kittinske15/Final-Project/raw/master/dist.rar
+
 
